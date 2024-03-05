@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Motorcycles</title>
+  </head>
+  <body>
+    <h1>Motorcycles</h1>
+    <% motorcycles.forEach(motorcycle => { %>
+    <div>
+      <h2><%= motorcycle.brand %> <%= motorcycle.model %></h2>
+      <p>Year: <%= motorcycle.year %></p>
+    </div>
+    <% }); %>
+    <a href="/">Back to Home</a>
+  </body>
+</html>

@@ -7,8 +7,16 @@ let motorcycles = [
   { id: 3, brand: "Kawasaki", model: "Ninja ZX-6R", year: 2021 },
 ];
 
+motorcycleRouter.get("/", (req, res) => {
+  res.render("home");
+});
+
 motorcycleRouter.get("/motorcycles", (req, res) => {
-  res.json(motorcycles);
+  res.render("motorcycle", { motorcycles: motorcycles });
+});
+
+motorcycleRouter.get("/addMotorcycle", (req, res) => {
+  res.render("motorcycleForm");
 });
 
 motorcycleRouter.get("/motorcycles/:id", (req, res) => {
@@ -25,7 +33,8 @@ motorcycleRouter.post("/motorcycles", (req, res) => {
   const id = motorcycles.length + 1;
   const newMotorcycle = { id, brand, model, year };
   motorcycles.push(newMotorcycle);
-  res.status(201).json(newMotorcycle);
+  // res.status(201).json(newMotorcycle);
+  res.redirect("/motorcycles");
 });
 
 motorcycleRouter.put("/motorcycles/:id", (req, res) => {
